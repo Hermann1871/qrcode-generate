@@ -15,6 +15,9 @@ function HelpPage() {
   const { pageId } = useParams();
   const image = `https://rickandmortyapi.com/api/character/avatar/${pageId}.jpeg`;
 
+  if (Number(pageId) > 826)
+    return <h2>ID non valido </h2>
+
   return (
     <>
       <div className="container" onClick={handleQRCodeClick}>
