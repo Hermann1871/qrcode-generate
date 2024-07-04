@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {
+  // BrowserRouter as Router,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import QrCode1 from "./components/QrCode1";
+import HelpPage1 from "./components/HelpPage1";
+import HelpPage2 from "./components/HelpPage2";
+import HelpPage3 from "./components/HelpPage3";
+import HelpPage from "./components/HelpPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <QrCode1 />,
+  },
+  {
+    path: "/page1",
+    element: <HelpPage1 />,
+  },
+  {
+    path: "/page2",
+    element: <HelpPage2 />,
+  },
+  {
+    path: "/page3",
+    element: <HelpPage3 />,
+  },
+  {
+    path: "/page/:pageId",
+    element: <HelpPage />,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
